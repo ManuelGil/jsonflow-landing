@@ -15,33 +15,45 @@ import { Github, Workflow, Menu } from 'lucide-react';
 
 	<body class="dark">
 		<div
-			class="absolute top-0 z-[-2] h-screen w-full bg-neutral-950
-             bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(23,37,84,1),rgba(255,255,255,0))]">
+			class="absolute top-0 z-[-2] h-screen w-full dark:bg-neutral-950
+             dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(23,37,84,1),rgba(255,255,255,0))] bg-neutral-50 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(239,246,255,1),rgba(0,0,0,0))]">
 		</div>
 		<div class="container mx-auto">
 			<header
-				class="sticky top-4 w-fit justify-self-center flex-row items-center justify-between gap-16 bg-neutral-900/75 py-2 px-4 rounded-md backdrop-blur-md z-10 border border-neutral-800 hidden md:flex">
+				class="sticky top-4 w-fit justify-self-center flex-row items-center justify-between gap-16 bg-neutral-100/75 dark:bg-neutral-900/75 py-2 px-4 rounded-md backdrop-blur-md z-10 border border-neutral-200 dark:border-neutral-800 hidden md:flex">
 				<div class="flex flex-row gap-2">
 					<Workflow />
 					<span class="font-bold text-lg">JSON Flow</span>
 				</div>
 				<nav class="flex gap-6">
 					<Button
+						client:load
+						disabled
+						tooltip="Coming soon"
 						variant="link"
 						className="text-muted-foreground p-0 hover:no-underline hover:text-blue-500"
 						>Features</Button
 					>
 					<Button
+						client:load
+						disabled
+						tooltip="Coming soon"
 						variant="link"
 						className="text-muted-foreground p-0 hover:no-underline hover:text-blue-500"
 						>How It Works</Button
 					>
 					<Button
+						client:load
+						disabled
+						tooltip="Coming soon"
 						variant="link"
 						className="text-muted-foreground p-0 hover:no-underline hover:text-blue-500"
 						>Use Cases</Button
 					>
 					<Button
+						client:load
+						disabled
+						tooltip="Coming soon"
 						variant="link"
 						className="text-muted-foreground p-0 hover:no-underline hover:text-blue-500"
 						>Team</Button
@@ -50,7 +62,7 @@ import { Github, Workflow, Menu } from 'lucide-react';
 				<a
 					href="https://marketplace.visualstudio.com/items?itemName=imgildev.vscode-json-flow"
 					target="_blank">
-					<Button className="text-neutral-50">Install on VS Code</Button>
+					<Button>Install on VS Code</Button>
 				</a>
 			</header>
 
@@ -97,7 +109,7 @@ import { Github, Workflow, Menu } from 'lucide-react';
 								href="https://marketplace.visualstudio.com/items?itemName=imgildev.vscode-json-flow"
 								target="_blank"
 								class="w-full sm:w-auto">
-								<Button size="lg" className="text-neutral-50 w-full sm:w-auto">
+								<Button size="lg" className="w-full sm:w-auto">
 									Install for Free on VS Code
 								</Button>
 							</a>

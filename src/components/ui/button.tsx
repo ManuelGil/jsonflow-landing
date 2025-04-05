@@ -1,6 +1,12 @@
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+	TooltipProvider,
+} from './tooltip';
 
 import { cn } from '@/lib/utils';
 
@@ -9,8 +15,7 @@ const buttonVariants = cva(
 	{
 		variants: {
 			variant: {
-				default:
-					'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',
+				default: 'bg-primary text-neutral-50 shadow-xs hover:bg-primary/90',
 				destructive:
 					'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
 				outline:
@@ -40,20 +45,44 @@ function Button({
 	variant,
 	size,
 	asChild = false,
+	tooltip,
+	disabled,
 	...props
 }: React.ComponentProps<'button'> &
 	VariantProps<typeof buttonVariants> & {
 		asChild?: boolean;
+		tooltip?: string;
 	}) {
 	const Comp = asChild ? Slot : 'button';
-
-	return (
+	const button = (
 		<Comp
 			data-slot="button"
 			className={cn(buttonVariants({ variant, size, className }))}
+			disabled={disabled}
 			{...props}
 		/>
 	);
+
+	const buttonWithTooltip = disabled ? (
+		<span style={{ display: 'inline-block' }}>{button}</span>
+	) : (
+		button
+	);
+
+	if (tooltip) {
+		return (
+			<TooltipProvider>
+				<Tooltip>
+					<TooltipTrigger asChild>{buttonWithTooltip}</TooltipTrigger>
+					<TooltipContent>
+						<p>{tooltip}</p>
+					</TooltipContent>
+				</Tooltip>
+			</TooltipProvider>
+		);
+	}
+
+	return button;
 }
 
 export { Button, buttonVariants };
