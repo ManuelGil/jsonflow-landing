@@ -1,6 +1,12 @@
 ---
 import '../styles/global.css';
-import { Button, Badge, BorderBeam, Separator } from '@/components';
+import {
+	Button,
+	Badge,
+	BorderBeam,
+	Separator,
+	NumberTicker,
+} from '@/components';
 import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
 ---
 
@@ -122,10 +128,14 @@ import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
 						</Badge>
 						<span
 							class="text-muted-foreground text-base md:text-lg text-center">
-							Trusted by over 20,000 developers around the world.
+							Trusted by over <NumberTicker
+								value={21000}
+								startValue={10000}
+								client:load
+							/> developers around the world.
 						</span>
 						<h1
-							class="text-4xl md:text-5xl lg:text-7xl font-bold max-w-2xl text-center">
+							class="text-4xl md:text-5xl lg:text-7xl font-bold max-w-3xl text-center">
 							Visualize your data like never before
 						</h1>
 						<h2 class="text-lg md:text-xl font-medium text-center px-4">
