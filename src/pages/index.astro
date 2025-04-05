@@ -25,12 +25,12 @@ import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
 		/>
 		<meta
 			property="og:image"
-			content="{import.meta.env.VITE_BASE_URL}/og.png"
+			content={import.meta.env.PUBLIC_BASE_URL + '/og.png'}
 		/>
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content="{import.meta.env.VITE_BASE_URL}" />
+		<meta property="twitter:url" content={import.meta.env.VITE_BASE_URL} />
 		<meta property="twitter:title" content="JSON Flow" />
 		<meta
 			property="twitter:description"
@@ -38,7 +38,7 @@ import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
 		/>
 		<meta
 			property="twitter:image"
-			content="{import.meta.env.VITE_BASE_URL}/og.png"
+			content={import.meta.env.PUBLIC_BASE_URL + '/og.png'}
 		/>
 	</head>
 
