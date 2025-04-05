@@ -6,8 +6,19 @@ import {
 	BorderBeam,
 	Separator,
 	NumberTicker,
+	BentoGrid,
+	BentoCard,
 } from '@/components';
-import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
+import {
+	Github,
+	Menu,
+	Book,
+	LifeBuoy,
+	FileJson,
+	GitGraph,
+	Download,
+} from 'lucide-react';
+import VisualStudioCode from '@/components/assets/vscode.tsx';
 ---
 
 <html lang="en">
@@ -173,45 +184,76 @@ import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
 						/>
 					</figure>
 				</section>
-			</main>
-			<footer class="px-8">
-				<Separator />
-				<div
-					class="flex flex-col md:flex-row items-center md:justify-between py-4 gap-4">
-					<p
-						class="text-muted-foreground text-center md:text-left items-center gap-2">
-						Made by developers for <span class="inline-flex items-center gap-2"
-							>developers with <img
-								src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png"
-								alt="Red Heart"
-								width="25"
-								height="25"
+				<section id="features">
+					<div>
+						<BentoGrid client:load>
+							<BentoCard
+								name="Multi-Format Support"
+								description="JSON, YAML, XML, CSV, and many more."
+								Icon={FileJson}
+								className="col-span-3 lg:col-span-1"
 							/>
-						</span>
-					</p>
-					<nav
-						class="flex md:gap-6 text-muted-foreground flex-col md:flex-row items-center gap-2">
-						<a
-							href="https://github.com/ManuelGil/vscode-json-flow/"
-							target="_blank"
-							class="hover:text-primary transition-colors hover:underline inline-flex items-center gap-1">
-							<Github className="size-4" />GitHub
-						</a>
-						<a
-							href="https://github.com/ManuelGil/vscode-json-flow/wiki"
-							target="_blank"
-							class="hover:text-primary transition-colors hover:underline inline-flex items-center gap-1">
-							<Book className="size-4" />Docs
-						</a>
-						<a
-							href="https://github.com/ManuelGil/vscode-json-flow/issues"
-							target="_blank"
-							class="hover:text-primary transition-colors hover:underline inline-flex items-center gap-1">
-							<LifeBuoy className="size-4" />Support
-						</a>
-					</nav>
-				</div>
-			</footer>
+							<BentoCard
+								name="Seamless VS Code Integration"
+								description="Works right where you code – inside VS Code. No setup required."
+								Icon={VisualStudioCode}
+								className="col-span-3 lg:col-span-2"
+							/>
+							<BentoCard
+								name="Instant Graphs"
+								description="Explore deeply nested structures with a single click."
+								Icon={GitGraph}
+								className="col-span-3 lg:col-span-2"
+							/>
+							<BentoCard
+								name="Export with Ease"
+								description="Export graphs as JPG, PNG or SVG with one click."
+								Icon={Download}
+								className="col-span-3 lg:col-span-1"
+							/>
+						</BentoGrid>
+					</div>
+				</section>
+				<footer class="px-8">
+					<Separator />
+					<div
+						class="flex flex-col md:flex-row items-center md:justify-between py-4 gap-4">
+						<p
+							class="text-muted-foreground text-center md:text-left items-center gap-2">
+							Made by developers for <span
+								class="inline-flex items-center gap-2"
+								>developers with <img
+									src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png"
+									alt="Red Heart"
+									width="25"
+									height="25"
+								/>
+							</span>
+						</p>
+						<nav
+							class="flex md:gap-6 text-muted-foreground flex-col md:flex-row items-center gap-2">
+							<a
+								href="https://github.com/ManuelGil/vscode-json-flow/"
+								target="_blank"
+								class="hover:text-primary transition-colors hover:underline inline-flex items-center gap-1">
+								<Github className="size-4" />GitHub
+							</a>
+							<a
+								href="https://github.com/ManuelGil/vscode-json-flow/wiki"
+								target="_blank"
+								class="hover:text-primary transition-colors hover:underline inline-flex items-center gap-1">
+								<Book className="size-4" />Docs
+							</a>
+							<a
+								href="https://github.com/ManuelGil/vscode-json-flow/issues"
+								target="_blank"
+								class="hover:text-primary transition-colors hover:underline inline-flex items-center gap-1">
+								<LifeBuoy className="size-4" />Support
+							</a>
+						</nav>
+					</div>
+				</footer>
+			</main>
 		</div>
 	</body>
 </html>
