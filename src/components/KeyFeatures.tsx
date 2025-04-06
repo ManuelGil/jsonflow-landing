@@ -10,7 +10,7 @@ const features = [
 			<img
 				src="/assets/formats.png"
 				alt="Formats illustration"
-				className="w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-300"
+				className="w-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-300"
 			/>
 		),
 		className: 'col-span-3 lg:col-span-1',
@@ -21,23 +21,11 @@ const features = [
 			'Works right where you code – inside VS Code. No setup required.',
 		icon: Code,
 		background: (
-			<div className="flex flex-row justify-end">
-				<img
-					src="/assets/windsurf.png"
-					alt="Formats illustration"
-					className="h-64 w-auto opacity-20 group-hover:opacity-40 transition-opacity duration-300 -rotate-16 mt-6 -mx-5"
-				/>
-				<img
-					src="/assets/cursor.png"
-					alt="Formats illustration"
-					className="h-64 w-auto opacity-20 group-hover:opacity-40 transition-opacity duration-300 -mx-5 -rotate-8"
-				/>
-				<img
-					src="/assets/vscode.png"
-					alt="Formats illustration"
-					className="h-84 w-auto opacity-20 group-hover:opacity-40 transition-opacity duration-300 rotate-8 mt-4 -mx-5"
-				/>
-			</div>
+			<img
+				src="/assets/editors.png"
+				alt="Formats illustration"
+				className="w-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-300 translate-y-10 md:translate-y-0"
+			/>
 		),
 		className: 'col-span-3 lg:col-span-2',
 	},
@@ -45,7 +33,13 @@ const features = [
 		name: 'Instant Graphs',
 		description: 'Explore deeply nested structures with a single click.',
 		icon: GitGraph,
-
+		background: (
+			<img
+				src="/assets/graph.png"
+				alt="Formats illustration"
+				className="w-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-300 rotate-6 md:ml-32 md:-translate-y-6 ml-4"
+			/>
+		),
 		className: 'col-span-3 lg:col-span-2',
 	},
 	{
@@ -56,7 +50,7 @@ const features = [
 			<img
 				src="/assets/formats2.png"
 				alt="Formats illustration"
-				className="w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-300"
+				className="w-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-300"
 			/>
 		),
 		className: 'col-span-3 lg:col-span-1',
