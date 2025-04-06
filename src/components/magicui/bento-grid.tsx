@@ -54,11 +54,18 @@ const BentoCard = ({
 			className
 		)}
 		{...props}>
-		{background && <div>{background}</div>}
+		{background && (
+			<div className="absolute inset-0 z-0 w-full h-full">
+				<div className="relative w-full h-full">
+					{background}
+					<div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+				</div>
+			</div>
+		)}
 		<div
 			className={cn(
-				'pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6',
-				background || (href && cta)
+				'relative z-10 flex transform-gpu flex-col gap-1 p-6 mt-auto',
+				href && cta
 					? 'transition-all duration-300 group-hover:-translate-y-10'
 					: ''
 			)}>

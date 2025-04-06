@@ -6,19 +6,10 @@ import {
 	BorderBeam,
 	Separator,
 	NumberTicker,
-	BentoGrid,
-	BentoCard,
+	KeyFeatures,
+	HowItWorks,
 } from '@/components';
-import {
-	Github,
-	Menu,
-	Book,
-	LifeBuoy,
-	FileJson,
-	GitGraph,
-	Download,
-} from 'lucide-react';
-import VisualStudioCode from '@/components/assets/vscode.tsx';
+import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
 ---
 
 <html lang="en">
@@ -66,7 +57,7 @@ import VisualStudioCode from '@/components/assets/vscode.tsx';
 		</div>
 		<div class="container mx-auto">
 			<header
-				class="sticky top-4 w-fit justify-self-center flex-row items-center justify-between gap-16 bg-neutral-100/75 dark:bg-neutral-900/75 py-2 px-4 rounded-md backdrop-blur-md z-10 border border-neutral-200 dark:border-neutral-800 hidden md:flex">
+				class="sticky top-4 w-fit justify-self-center flex-row items-center justify-between gap-16 bg-neutral-100/75 dark:bg-neutral-900/75 py-2 px-4 rounded-md backdrop-blur-md z-20 border border-neutral-200 dark:border-neutral-800 hidden md:flex">
 				<div class="flex flex-row gap-2">
 					<img src="/logo.svg" alt="JSON Flow" class="size-6" />
 					<span class="font-bold text-lg">JSON Flow</span>
@@ -194,32 +185,12 @@ import VisualStudioCode from '@/components/assets/vscode.tsx';
 							structures effectively.
 						</p>
 					</div>
-					<BentoGrid client:load>
-						<BentoCard
-							name="Multi-Format Support"
-							description="JSON, YAML, XML, CSV, and many more."
-							Icon={FileJson}
-							className="col-span-3 lg:col-span-1"
-						/>
-						<BentoCard
-							name="Seamless VS Code Integration"
-							description="Works right where you code – inside VS Code. No setup required."
-							Icon={VisualStudioCode}
-							className="col-span-3 lg:col-span-2"
-						/>
-						<BentoCard
-							name="Instant Graphs"
-							description="Explore deeply nested structures with a single click."
-							Icon={GitGraph}
-							className="col-span-3 lg:col-span-2"
-						/>
-						<BentoCard
-							name="Export with Ease"
-							description="Export graphs as JPG, PNG or SVG with one click."
-							Icon={Download}
-							className="col-span-3 lg:col-span-1"
-						/>
-					</BentoGrid>
+					<KeyFeatures client:load />
+				</section>
+				<section
+					id="how-it-works"
+					class="grid grid-cols-1 md:grid-cols-3 gap-8 py-16 px-4 lg:h-screen">
+					<HowItWorks client:load />
 				</section>
 				<footer class="px-8">
 					<Separator />
