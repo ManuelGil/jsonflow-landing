@@ -8,8 +8,8 @@ const features = [
 		icon: FileJson,
 		background: (
 			<img
-				src="/assets/formats.png"
-				alt="Formats illustration"
+				src="/assets/formats.webp"
+				alt="Grid of file format icons including JSON, YAML, TOML, INI, CSV, HCL, XML, TSV in colorful squares"
 				className="w-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-300"
 			/>
 		),
@@ -22,8 +22,8 @@ const features = [
 		icon: Code,
 		background: (
 			<img
-				src="/assets/editors.png"
-				alt="Formats illustration"
+				src="/assets/editors.webp"
+				alt="Code editor logos: Windsurf, Cursor, and VS Code"
 				className="w-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-300 translate-y-10 md:translate-y-0"
 			/>
 		),
@@ -35,8 +35,8 @@ const features = [
 		icon: GitGraph,
 		background: (
 			<img
-				src="/assets/graph.png"
-				alt="Formats illustration"
+				src="/assets/graph.webp"
+				alt="Hierarchical tree diagram showing interconnected nodes in various colors starting from a purple root node"
 				className="w-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-300 rotate-6 md:ml-32 md:-translate-y-6 ml-4"
 			/>
 		),
@@ -48,8 +48,8 @@ const features = [
 		icon: Download,
 		background: (
 			<img
-				src="/assets/formats2.png"
-				alt="Formats illustration"
+				src="/assets/formats2.webp"
+				alt="Three export format icons - JPG, PNG, and SVG - arranged in a triangular layout with 3D effect"
 				className="w-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-300"
 			/>
 		),
