@@ -10,7 +10,7 @@ const features = [
 			<img
 				src="/assets/formats.webp"
 				alt="Grid of file format icons including JSON, YAML, TOML, INI, CSV, HCL, XML, TSV in colorful squares"
-				className="w-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-300"
+				className="w-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-300"
 			/>
 		),
 		className: 'col-span-3 lg:col-span-1',
@@ -24,7 +24,7 @@ const features = [
 			<img
 				src="/assets/editors.webp"
 				alt="Code editor logos: Windsurf, Cursor, and VS Code"
-				className="w-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-300 translate-y-10 md:translate-y-0"
+				className="w-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-300 translate-y-10 md:translate-y-0"
 			/>
 		),
 		className: 'col-span-3 lg:col-span-2',
@@ -37,7 +37,7 @@ const features = [
 			<img
 				src="/assets/graph.webp"
 				alt="Hierarchical tree diagram showing interconnected nodes in various colors starting from a purple root node"
-				className="w-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-300 rotate-6 md:ml-32 md:-translate-y-6 ml-4"
+				className="w-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-300 rotate-6 md:ml-32 md:-translate-y-6 ml-4"
 			/>
 		),
 		className: 'col-span-3 lg:col-span-2',
@@ -50,7 +50,7 @@ const features = [
 			<img
 				src="/assets/formats2.webp"
 				alt="Three export format icons - JPG, PNG, and SVG - arranged in a triangular layout with 3D effect"
-				className="w-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-300"
+				className="w-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-300"
 			/>
 		),
 		className: 'col-span-3 lg:col-span-1',

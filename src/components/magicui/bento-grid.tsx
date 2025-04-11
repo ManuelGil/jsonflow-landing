@@ -71,7 +71,7 @@ const BentoCard = ({
 			)}>
 			<Icon
 				className={cn(
-					'h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out ',
+					'h-12 w-12 origin-left transform-gpu text-neutral-400 transition-all duration-300 ease-in-out ',
 					href && cta ? 'group-hover:scale-75' : ''
 				)}
 			/>
