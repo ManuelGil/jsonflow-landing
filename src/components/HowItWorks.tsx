@@ -103,7 +103,7 @@ export function HowItWorks() {
 				</div>
 				<div className="flex flex-col gap-4">
 					{steps.map((step, index) => (
-						<Card className="transition-all duration-200 w-full">
+						<Card key={index} className="transition-all duration-200 w-full">
 							<CardHeader className="inline-flex gap-4 items-center">
 								<div
 									className={`size-10 rounded-full flex items-center justify-center aspect-square border-2 border-secondary-foreground`}>
@@ -116,6 +116,7 @@ export function HowItWorks() {
 							</CardHeader>
 							<CardContent>
 								<img
+									key={index}
 									src={step.image}
 									alt={step.imageAlt}
 									className="h-full aspect-video object-contain rounded-md"
