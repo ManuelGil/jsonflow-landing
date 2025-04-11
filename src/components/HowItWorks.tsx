@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { useInView, motion, AnimatePresence } from 'motion/react';
 import {
 	Card,
+	CardContent,
 	CardDescription,
 	CardHeader,
 	CardTitle,
@@ -92,8 +93,41 @@ export function HowItWorks() {
 
 	return (
 		<div className="lg:h-screen flex flex-col justify-center items-center">
+			{/* Mobile */}
+			<div className="flex flex-col gap-8 lg:hidden w-full px-4 py-8">
+				<div className="flex flex-col">
+					<h2 className="text-4xl font-bold">How It Works</h2>
+					<p className="text-muted-foreground text-lg">
+						Get started in three simple steps
+					</p>
+				</div>
+				<div className="flex flex-col gap-4">
+					{steps.map((step, index) => (
+						<Card className="transition-all duration-200 w-full">
+							<CardHeader className="inline-flex gap-4 items-center">
+								<div
+									className={`size-10 rounded-full flex items-center justify-center aspect-square border-2 border-secondary-foreground`}>
+									<step.icon className="text-neutral-50" />
+								</div>
+								<div className="flex flex-col gap-2">
+									<CardTitle>{step.title}</CardTitle>
+									<CardDescription>{step.description}</CardDescription>
+								</div>
+							</CardHeader>
+							<CardContent>
+								<img
+									src={step.image}
+									alt={step.imageAlt}
+									className="h-full aspect-video object-contain rounded-md"
+								/>
+							</CardContent>
+						</Card>
+					))}
+				</div>
+			</div>
+			{/* Desktop */}
 			<motion.div
-				className="grid grid-cols-1 lg:grid-cols-3 gap-8 py-16 px-4"
+				className="lg:grid-cols-3 gap-8 py-16 px-4 hidden lg:grid"
 				ref={ref}>
 				<div className="flex flex-col gap-8 col-span-1 justify-center">
 					<div className="flex flex-col">
@@ -120,7 +154,9 @@ export function HowItWorks() {
 										ease: 'anticipate',
 									},
 								}}>
-								<Card className="transition-all duration-200">
+								<Card
+									className="transition-all duration-200 cursor-pointer"
+									onClick={() => setCurrentStep(index)}>
 									<CardHeader className="inline-flex gap-4 items-center">
 										<div
 											className={`size-10 rounded-full flex items-center justify-center aspect-square border-2 border-secondary-foreground`}>
