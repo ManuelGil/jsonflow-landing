@@ -58,7 +58,11 @@ export function MemberCard({
 							target="_blank"
 							rel="noopener noreferrer"
 							className="flex items-center gap-2">
-							<img src="/assets/github_dark.svg" alt="GitHub" className="h-5" />
+							<img
+								src="/assets/github_dark.svg"
+								alt="GitHub Logo"
+								className="h-5"
+							/>
 							<span className="hidden xs:inline">GitHub</span>
 						</a>
 					</Button>
@@ -74,7 +78,11 @@ export function MemberCard({
 							target="_blank"
 							rel="noopener noreferrer"
 							className="flex items-center gap-2">
-							<img src="/assets/linkedin.svg" alt="LinkedIn" className="h-5" />
+							<img
+								src="/assets/linkedin.svg"
+								alt="LinkedIn Logo"
+								className="h-5"
+							/>
 							<span className="hidden xs:inline">LinkedIn</span>
 						</a>
 					</Button>
@@ -90,7 +98,11 @@ export function MemberCard({
 							target="_blank"
 							rel="noopener noreferrer"
 							className="flex items-center gap-2">
-							<img src="/assets/x_dark.svg" alt="Twitter" className="h-4" />
+							<img
+								src="/assets/x_dark.svg"
+								alt="Twitter Logo"
+								className="h-4"
+							/>
 							<span className="hidden xs:inline">Twitter</span>
 						</a>
 					</Button>
