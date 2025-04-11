@@ -10,6 +10,7 @@ import {
 	HowItWorks,
 	InteractiveGridPattern,
 	MemberCard,
+	Header,
 } from '@/components';
 import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
 ---
@@ -58,64 +59,7 @@ import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
              dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(23,37,84,1),rgba(255,255,255,0))] bg-neutral-50 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(239,246,255,1),rgba(0,0,0,0))]">
 		</div>
 		<div class="container mx-auto">
-			<header
-				class="sticky top-4 w-fit justify-self-center flex-row items-center justify-between gap-16 bg-neutral-100/75 dark:bg-neutral-900/75 py-2 px-4 rounded-md backdrop-blur-md z-20 border border-neutral-200 dark:border-neutral-800 hidden md:flex">
-				<div class="flex flex-row gap-2">
-					<img src="/logo.svg" alt="JSON Flow" class="size-6" />
-					<span class="font-bold text-lg">JSON Flow</span>
-				</div>
-				<nav class="flex gap-6">
-					<Button
-						client:load
-						disabled
-						tooltip="Coming soon"
-						variant="link"
-						className="text-muted-foreground p-0 hover:no-underline hover:text-blue-500"
-						>Features</Button
-					>
-					<Button
-						client:load
-						disabled
-						tooltip="Coming soon"
-						variant="link"
-						className="text-muted-foreground p-0 hover:no-underline hover:text-blue-500"
-						>How It Works</Button
-					>
-					<Button
-						client:load
-						disabled
-						tooltip="Coming soon"
-						variant="link"
-						className="text-muted-foreground p-0 hover:no-underline hover:text-blue-500"
-						>Use Cases</Button
-					>
-					<Button
-						client:load
-						disabled
-						tooltip="Coming soon"
-						variant="link"
-						className="text-muted-foreground p-0 hover:no-underline hover:text-blue-500"
-						>Team</Button
-					>
-				</nav>
-				<a
-					href="https://marketplace.visualstudio.com/items?itemName=imgildev.vscode-json-flow"
-					target="_blank">
-					<Button>Install on VS Code</Button>
-				</a>
-			</header>
-
-			<header
-				class="sticky top-4 justify-self-center flex-row items-center justify-between bg-neutral-900/75 p-2 rounded-md backdrop-blur-md z-10 border border-neutral-800 flex md:hidden gap-8 w-9/10">
-				<div class="flex flex-row gap-2">
-					<img src="/logo.svg" alt="JSON Flow" class="size-6" />
-					<span class="font-bold text-lg">JSON Flow</span>
-				</div>
-				<Button variant="outline" size="icon">
-					<Menu />
-				</Button>
-			</header>
-
+			<Header client:load />
 			<main>
 				<section
 					id="hero"
