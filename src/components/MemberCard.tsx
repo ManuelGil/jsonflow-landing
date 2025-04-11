@@ -10,7 +10,6 @@ import {
 	AvatarFallback,
 	BorderBeam,
 } from '@/components';
-import { Github, Linkedin, Twitter } from 'lucide-react';
 
 interface MemberCardProps {
 	name: string;

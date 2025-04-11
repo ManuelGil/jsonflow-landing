@@ -12,7 +12,8 @@ import {
 	MemberCard,
 	Header,
 } from '@/components';
-import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
+import { Book, LifeBuoy } from 'lucide-react';
+import { Image } from 'astro:assets';
 ---
 
 <html lang="en">
@@ -108,10 +109,12 @@ import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
 									variant="outline"
 									size="lg"
 									className="w-full sm:w-auto">
-									<img
+									<Image
 										src="/assets/github_dark.svg"
 										alt="GitHub"
-										class="size-4"
+										class="mr-1 size-4"
+										width={16}
+										height={16}
 									/>
 									Star on GitHub
 								</Button>
@@ -119,10 +122,12 @@ import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
 						</div>
 					</div>
 					<figure>
-						<img
+						<Image
 							src="https://raw.githubusercontent.com/ManuelGil/vscode-json-flow/main/images/json-flow-1.gif"
 							alt="JSON Flow Demo"
 							class="w-full rounded-lg border border-blue-500/50 shadow-[0px_0px_10px_2px_rgba(37,99,235,1)]"
+							width={1000}
+							height={1000}
 						/>
 					</figure>
 				</section>
@@ -221,7 +226,7 @@ import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
 							class="text-muted-foreground text-center md:text-left items-center gap-2">
 							Made by developers for <span
 								class="inline-flex items-center gap-2"
-								>developers with <img
+								>developers with <Image
 									src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png"
 									alt="Red Heart"
 									width="25"
@@ -235,7 +240,13 @@ import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
 								href="https://github.com/ManuelGil/vscode-json-flow/"
 								target="_blank"
 								class="hover:text-primary transition-colors hover:underline inline-flex items-center gap-1">
-								<Github className="size-4" />GitHub
+								<Image
+									src="/assets/github_dark.svg"
+									alt="GitHub"
+									class="mr-1 size-4"
+									width={16}
+									height={16}
+								/> GitHub
 							</a>
 							<a
 								href="https://github.com/ManuelGil/vscode-json-flow/wiki"

@@ -30,7 +30,7 @@ export function Header() {
 		<header className="fixed top-4 left-4 right-4 w-9/10 md:w-fit justify-self-center flex-col items-center bg-neutral-100/75 dark:bg-neutral-900/75 py-2 px-4 rounded-md backdrop-blur-md z-20 border border-neutral-200 dark:border-neutral-800 flex">
 			<div className="flex flex-row items-center gap-12 justify-between w-full">
 				<a href="/" className="flex flex-row gap-2 items-center">
-					<img src="/logo.svg" alt="JSON Flow" className="size-6" />
+					<img src="/logo.svg" alt="JSON Flow Logo" className="size-6" />
 					<span className="font-bold text-lg">JSON Flow</span>
 				</a>
 				<nav className="gap-6 hidden md:flex">
@@ -56,6 +56,7 @@ export function Header() {
 					variant="ghost"
 					size="icon"
 					className="md:hidden"
+					aria-label="Toggle menu"
 					onClick={() => setIsMenuOpen(!isMenuOpen)}>
 					{isMenuOpen ? <X /> : <Menu />}
 				</Button>
