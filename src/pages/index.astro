@@ -9,6 +9,7 @@ import {
 	KeyFeatures,
 	HowItWorks,
 	InteractiveGridPattern,
+	MemberCard,
 } from '@/components';
 import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
 ---
@@ -190,6 +191,48 @@ import { Github, Menu, Book, LifeBuoy } from 'lucide-react';
 				</section>
 				<section id="how-it-works">
 					<HowItWorks client:load />
+				</section>
+				<section
+					id="team"
+					class="flex flex-col items-center justify-center p-8 gap-8">
+					<div class="flex flex-col items-center gap-2">
+						<h2 class="text-4xl font-bold text-center">Meet the Makers</h2>
+						<p class="text-muted-foreground text-center max-w-3xl">
+							JSON Flow is built and maintained by a small team of passionate
+							developers who believe that working with structured data should be
+							visual, intuitive, and collaborative.
+						</p>
+					</div>
+					<div
+						class="flex flex-col items-center gap-8 xl:gap-0 w-full xl:justify-between 2xl:justify-evenly lg:flex-row lg:flex-wrap justify-center">
+						<MemberCard
+							name="Manuel Gil"
+							role="Creator and lead developer"
+							photo="/assets/imgildev.png"
+							github="https://github.com/ManuelGil"
+							linkedin="https://www.linkedin.com/in/imgildev"
+							x="https://x.com/imgildev"
+							client:load
+						/>
+						<MemberCard
+							name="Santiago Rey"
+							role="Collaborator"
+							photo="/assets/ksreyr.jpg"
+							github="https://github.com/ksreyr"
+							linkedin="https://www.linkedin.com/in/ksreyr"
+							x="https://x.com/ksreyr"
+							client:load
+						/>
+						<MemberCard
+							name="Andry Orellana"
+							role="Collaborator"
+							photo="/assets/andryore.jpg"
+							github="https://github.com/AndryOre"
+							linkedin="https://www.linkedin.com/in/andryore"
+							x="https://x.com/andryore"
+							client:load
+						/>
+					</div>
 				</section>
 				<section id="call-to-action" class="p-8">
 					<div
