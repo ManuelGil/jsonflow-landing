@@ -1,17 +1,17 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
-
-import react from '@astrojs/react';
+import react from "@astrojs/react";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-	vite: {
-		plugins: [tailwindcss()],
-		server: {
-			allowedHosts: ['.trycloudflare.com'],
-		},
-	},
-
-	integrations: [react()],
+  site: "https://json-flow.com",
+  base: "/",
+  vite: {
+    plugins: [tailwindcss()],
+    server: {
+      allowedHosts: [".trycloudflare.com"],
+    },
+  },
+  integrations: [react()],
 });
