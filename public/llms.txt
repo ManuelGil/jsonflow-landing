@@ -1,0 +1,43 @@
+# JSON Flow
+
+> JSON Flow is a free, open-source Visual Studio Code extension that turns JSON, YAML, XML, and CSV files into interactive, node-based graphs you can explore directly inside the editor. It is published under the MIT license and used by more than 21,000 developers.
+
+JSON Flow is built and maintained by Manuel Gil (creator and lead developer) with collaborators Santiago Rey and Andry Orellana. It requires Visual Studio Code and runs on Windows, macOS, and Linux. There is no paid tier and no account is required.
+
+## What it does
+
+- **Multi-format support**: reads JSON, YAML, XML, CSV, and many more structured data formats.
+- **Seamless VS Code integration**: works inside VS Code where you already code, with no setup required.
+- **Instant graphs**: explore deeply nested structures with a single click.
+- **Export with ease**: export graphs as JPG, PNG, or SVG with one click.
+
+## How it works
+
+1. **Install** — get the extension from the Visual Studio Code Marketplace.
+2. **Open** — load any supported data file.
+3. **Visualize** — interact with a clean, structured node-based graph.
+
+## Common use cases
+
+- Debugging complex, deeply nested JSON API responses.
+- Understanding and auditing configuration files (YAML, TOML, INI).
+- Teaching data structures such as trees and graphs visually.
+- Reviewing and annotating data workflows as visual documentation with a team.
+
+## Links
+
+- [Homepage](https://json-flow.com/): product overview, features, and demo.
+- [Install on VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=imgildev.vscode-json-flow): official extension listing.
+- [Source code on GitHub](https://github.com/ManuelGil/vscode-json-flow): MIT-licensed repository.
+- [Documentation](https://github.com/ManuelGil/vscode-json-flow/wiki): usage guide and reference.
+- [Support and issues](https://github.com/ManuelGil/vscode-json-flow/issues): bug reports and feature requests.
+
+## Facts
+
+- **Name**: JSON Flow
+- **Type**: Visual Studio Code extension (developer tool)
+- **Price**: Free (MIT license, open source)
+- **Publisher ID**: `imgildev.vscode-json-flow`
+- **Requires**: Visual Studio Code
+- **Platforms**: Windows, macOS, Linux
+- **Author**: Manuel Gil — https://imgil.dev/

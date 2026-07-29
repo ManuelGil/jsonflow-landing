@@ -60,6 +60,10 @@ export function MemberCard({
 							className="flex items-center gap-2">
 							<img
 								src="/assets/github_dark.svg"
+								width={98}
+								height={96}
+								loading="lazy"
+								decoding="async"
 								alt="GitHub Logo"
 								className="h-5"
 							/>
@@ -80,6 +84,10 @@ export function MemberCard({
 							className="flex items-center gap-2">
 							<img
 								src="/assets/linkedin.svg"
+								width={256}
+								height={256}
+								loading="lazy"
+								decoding="async"
 								alt="LinkedIn Logo"
 								className="h-5"
 							/>
@@ -100,6 +108,10 @@ export function MemberCard({
 							className="flex items-center gap-2">
 							<img
 								src="/assets/x_dark.svg"
+								width={1200}
+								height={1227}
+								loading="lazy"
+								decoding="async"
 								alt="Twitter Logo"
 								className="h-4"
 							/>

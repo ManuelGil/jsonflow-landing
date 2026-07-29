@@ -9,6 +9,10 @@ const features = [
 		background: (
 			<img
 				src="/assets/formats.webp"
+				width={1024}
+				height={1024}
+				loading="lazy"
+				decoding="async"
 				alt="Grid of file format icons including JSON, YAML, TOML, INI, CSV, HCL, XML, TSV in colorful squares"
 				className="w-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-300"
 			/>
@@ -23,6 +27,10 @@ const features = [
 		background: (
 			<img
 				src="/assets/editors.webp"
+				width={2600}
+				height={1024}
+				loading="lazy"
+				decoding="async"
 				alt="Code editor logos: Windsurf, Cursor, and VS Code"
 				className="w-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-300 translate-y-10 md:translate-y-0"
 			/>
@@ -36,6 +44,10 @@ const features = [
 		background: (
 			<img
 				src="/assets/graph.webp"
+				width={1536}
+				height={1024}
+				loading="lazy"
+				decoding="async"
 				alt="Hierarchical tree diagram showing interconnected nodes in various colors starting from a purple root node"
 				className="w-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-300 rotate-6 md:ml-32 md:-translate-y-6 ml-4"
 			/>
@@ -49,6 +61,10 @@ const features = [
 		background: (
 			<img
 				src="/assets/formats2.webp"
+				width={1024}
+				height={1024}
+				loading="lazy"
+				decoding="async"
 				alt="Three export format icons - JPG, PNG, and SVG - arranged in a triangular layout with 3D effect"
 				className="w-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-300"
 			/>

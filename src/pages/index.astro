@@ -1,284 +1,399 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 import {
-	Button,
-	Badge,
-	BorderBeam,
-	Separator,
-	NumberTicker,
-	KeyFeatures,
-	HowItWorks,
-	InteractiveGridPattern,
-	MemberCard,
-	Header,
-	UseCases,
-} from '@/components';
-import { Book, LifeBuoy } from 'lucide-react';
-import { Image } from 'astro:assets';
+  Button,
+  Badge,
+  BorderBeam,
+  Separator,
+  NumberTicker,
+  KeyFeatures,
+  HowItWorks,
+  InteractiveGridPattern,
+  MemberCard,
+  Header,
+  UseCases,
+} from "@/components";
+import { Book, LifeBuoy } from "lucide-react";
+import { Image } from "astro:assets";
+
+const site = Astro.site ?? new URL("https://json-flow.com");
+const canonical = new URL(Astro.url.pathname, site);
+const ogImage = new URL("/og.png", site);
+
+const title = "JSON Flow — Visualize your data like never before";
+const description =
+  "JSON Flow is a free, open-source VS Code extension that turns JSON, YAML, XML, and CSV files into interactive, explorable graphs.";
+
+const marketplaceUrl =
+  "https://marketplace.visualstudio.com/items?itemName=imgildev.vscode-json-flow";
+const repoUrl = "https://github.com/ManuelGil/vscode-json-flow";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${site.origin}/#software`,
+      name: "JSON Flow",
+      url: site.origin,
+      description,
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Windows, macOS, Linux",
+      softwareRequirements: "Visual Studio Code",
+      downloadUrl: marketplaceUrl,
+      installUrl: marketplaceUrl,
+      license: "https://opensource.org/licenses/MIT",
+      isAccessibleForFree: true,
+      image: ogImage.href,
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      author: { "@id": `${site.origin}/#author` },
+      sameAs: [repoUrl, marketplaceUrl],
+    },
+    {
+      "@type": "Person",
+      "@id": `${site.origin}/#author`,
+      name: "Manuel Gil",
+      url: "https://imgil.dev/",
+      sameAs: [
+        "https://github.com/ManuelGil",
+        "https://www.linkedin.com/in/imgildev",
+        "https://x.com/imgildev",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.origin}/#website`,
+      url: site.origin,
+      name: "JSON Flow",
+      description,
+      inLanguage: "en",
+      publisher: { "@id": `${site.origin}/#author` },
+    },
+    {
+      "@type": "WebPage",
+      "@id": canonical.href,
+      url: canonical.href,
+      name: title,
+      description,
+      isPartOf: { "@id": `${site.origin}/#website` },
+      about: { "@id": `${site.origin}/#software` },
+      primaryImageOfPage: ogImage.href,
+    },
+  ],
+};
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>JSON Flow</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
 
-		<meta name="title" content="JSON Flow" />
-		<meta name="description" content="Visualize your data like never before" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Manuel Gil" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <link rel="canonical" href={canonical} />
 
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="{import.meta.env.VITE_BASE_URL}" />
-		<meta property="og:title" content="JSON Flow" />
-		<meta
-			property="og:description"
-			content="Visualize your data like never before"
-		/>
-		<meta
-			property="og:image"
-			content={import.meta.env.PUBLIC_BASE_URL + '/og.png'}
-		/>
+    <link
+      rel="preload"
+      href="/fonts/Geist.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
 
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={import.meta.env.VITE_BASE_URL} />
-		<meta property="twitter:title" content="JSON Flow" />
-		<meta
-			property="twitter:description"
-			content="Visualize your data like never before"
-		/>
-		<meta
-			property="twitter:image"
-			content={import.meta.env.PUBLIC_BASE_URL + '/og.png'}
-		/>
-	</head>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="JSON Flow" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="JSON Flow — a VS Code extension that turns structured data files into interactive graphs"
+    />
 
-	<body class="dark">
-		<div
-			class="absolute top-0 z-[-2] h-screen w-full dark:bg-neutral-950
-             dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(23,37,84,1),rgba(255,255,255,0))] bg-neutral-50 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(239,246,255,1),rgba(0,0,0,0))]">
-		</div>
-		<div class="container mx-auto">
-			<Header client:load />
-			<main>
-				<section
-					id="hero"
-					class="flex flex-col items-center justify-center px-4 pt-24 pb-8 lg:p-24 gap-8 md:gap-16 lg:gap-32 h-auto">
-					<div class="flex flex-col items-center gap-4 md:gap-8">
-						<Badge
-							variant="outline"
-							className="text-sm md:text-md relative overflow-hidden">
-							<BorderBeam
-								client:load
-								className="from-transparent via-neutral-500 to-transparent"
-							/>
-							Free & Open Source
-						</Badge>
-						<span
-							class="text-muted-foreground text-base md:text-lg text-center">
-							Trusted by over <NumberTicker
-								value={21000}
-								startValue={10000}
-								client:load
-							/> developers around the world.
-						</span>
-						<h1
-							class="text-4xl md:text-5xl lg:text-7xl font-bold max-w-3xl text-center">
-							Visualize your data like never before
-						</h1>
-						<h2 class="text-lg md:text-xl font-medium text-center px-4">
-							A powerful VS Code extension to turn your JSON, YAML, XML, and CSV
-							files into interactive graphs.
-						</h2>
-						<div
-							class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4 sm:px-0">
-							<a
-								href="https://marketplace.visualstudio.com/items?itemName=imgildev.vscode-json-flow"
-								target="_blank"
-								class="w-full sm:w-auto">
-								<Button size="lg" className="w-full sm:w-auto">
-									Install for Free on VS Code
-								</Button>
-							</a>
-							<a
-								href="https://github.com/ManuelGil/vscode-json-flow"
-								target="_blank"
-								class="w-full sm:w-auto">
-								<Button
-									variant="outline"
-									size="lg"
-									className="w-full sm:w-auto">
-									<Image
-										src="/assets/github_dark.svg"
-										alt="GitHub Logo"
-										class="mr-1 size-4"
-										width={16}
-										height={16}
-									/>
-									Star on GitHub
-								</Button>
-							</a>
-						</div>
-					</div>
-					<figure>
-						<video
-							src="https://github.com/ManuelGil/jsonflow-landing/raw/refs/heads/main/public/assets/json-flow.mp4"
-							class="w-full rounded-lg border border-blue-500/50 shadow-[0px_0px_10px_2px_rgba(37,99,235,1)]"
-							width={1000}
-							height={1000}
-							autoplay
-							loop
-							muted
-							playsinline></video>
-					</figure>
-				</section>
-				<section
-					id="features"
-					class="flex flex-col items-center justify-center p-8 gap-8">
-					<div class="flex flex-col items-center gap-2">
-						<h2 class="text-4xl font-bold text-center">Key Features</h2>
-						<p class="text-muted-foreground text-center">
-							Everything you need to understand and visualize your data
-							structures effectively.
-						</p>
-					</div>
-					<KeyFeatures client:load />
-				</section>
-				<section id="how-it-works">
-					<HowItWorks client:load />
-				</section>
-				<section
-					id="use-cases"
-					class="flex flex-col items-center justify-center p-8 gap-8">
-					<div class="flex flex-col items-center gap-2">
-						<h2 class="text-4xl font-bold text-center">Made for Developers</h2>
-						<p class="text-muted-foreground text-center max-w-3xl">
-							Real scenarios, real solutions. See how JSON Flow fits into your
-							daily workflow.
-						</p>
-					</div>
-					<UseCases client:load />
-				</section>
-				<section
-					id="team"
-					class="flex flex-col items-center justify-center p-8 gap-8">
-					<div class="flex flex-col items-center gap-2">
-						<h2 class="text-4xl font-bold text-center">Meet the Makers</h2>
-						<p class="text-muted-foreground text-center max-w-3xl">
-							JSON Flow is built and maintained by a small team of passionate
-							developers who believe that working with structured data should be
-							visual, intuitive, and collaborative.
-						</p>
-					</div>
-					<div
-						class="flex flex-col items-center gap-8 xl:gap-0 w-full xl:justify-between 2xl:justify-evenly lg:flex-row lg:flex-wrap justify-center">
-						<MemberCard
-							name="Manuel Gil"
-							role="Creator and lead developer"
-							photo="/assets/imgildev.png"
-							github="https://github.com/ManuelGil"
-							linkedin="https://www.linkedin.com/in/imgildev"
-							x="https://x.com/imgildev"
-							client:load
-						/>
-						<MemberCard
-							name="Santiago Rey"
-							role="Collaborator"
-							photo="/assets/ksreyr.jpg"
-							github="https://github.com/ksreyr"
-							linkedin="https://www.linkedin.com/in/ksreyr"
-							x="https://x.com/ksreyr"
-							client:load
-						/>
-						<MemberCard
-							name="Andry Orellana"
-							role="Collaborator"
-							photo="/assets/andryore.jpg"
-							github="https://github.com/AndryOre"
-							linkedin="https://www.linkedin.com/in/andryore"
-							x="https://x.com/andryore"
-							client:load
-						/>
-					</div>
-				</section>
-				<section id="call-to-action" class="p-8">
-					<div
-						class="relative flex h-[50vh] w-full flex-col items-center justify-center overflow-hidden rounded-md border bg-background">
-						<div
-							class="flex flex-col items-center justify-center gap-12 z-10 py-2 px-4">
-							<div class="flex flex-col items-center justify-center gap-2">
-								<h2
-									class="text-2xl md:text-4xl lg:text-5xl font-bold text-center">
-									Ready to simplify your data workflow?
-								</h2>
-								<p
-									class="text-muted-foreground text-center md:text-xl lg:text-2xl">
-									Start visualizing smarter - Install JSON Flow for free.
-								</p>
-							</div>
-							<a
-								href="https://marketplace.visualstudio.com/items?itemName=imgildev.vscode-json-flow"
-								target="_blank">
-								<Button size="lg"> Get JSON Flow Now </Button>
-							</a>
-						</div>
-						<InteractiveGridPattern
-							className="[mask-image:radial-gradient(600px_circle_at_center,white,transparent)] opacity-50"
-							width={60}
-							height={60}
-							squares={[80, 80]}
-							squaresClassName="hover:fill-blue-500"
-						/>
-					</div>
-				</section>
-				<footer class="px-8">
-					<Separator />
-					<div
-						class="flex flex-col md:flex-row items-center md:justify-between py-4 gap-4">
-						<p
-							class="text-muted-foreground text-center md:text-left items-center gap-2">
-							Made by developers for <span
-								class="inline-flex items-center gap-2"
-								>developers with <Image
-									src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png"
-									alt="Red Heart"
-									width="25"
-									height="25"
-								/>
-							</span>
-						</p>
-						<nav
-							class="flex md:gap-6 text-muted-foreground flex-col md:flex-row items-center gap-2">
-							<a
-								href="https://github.com/ManuelGil/vscode-json-flow/"
-								target="_blank"
-								class="hover:text-primary transition-colors hover:underline inline-flex items-center gap-1">
-								<Image
-									src="/assets/github_dark.svg"
-									alt="GitHub Logo"
-									class="mr-1 size-4"
-									width={16}
-									height={16}
-								/> GitHub
-							</a>
-							<a
-								href="https://github.com/ManuelGil/vscode-json-flow/wiki"
-								target="_blank"
-								class="hover:text-primary transition-colors hover:underline inline-flex items-center gap-1">
-								<Book className="size-4" />Docs
-							</a>
-							<a
-								href="https://github.com/ManuelGil/vscode-json-flow/issues"
-								target="_blank"
-								class="hover:text-primary transition-colors hover:underline inline-flex items-center gap-1">
-								<LifeBuoy className="size-4" />Support
-							</a>
-						</nav>
-					</div>
-				</footer>
-			</main>
-		</div>
-	</body>
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonical} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:creator" content="@imgildev" />
+
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(schema)}
+    />
+  </head>
+
+  <body class="dark">
+    <div
+      class="absolute top-0 z-[-2] h-screen w-full dark:bg-neutral-950
+             dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(23,37,84,1),rgba(255,255,255,0))] bg-neutral-50 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(239,246,255,1),rgba(0,0,0,0))]"
+    >
+    </div>
+    <div class="container mx-auto">
+      <Header client:load />
+      <main>
+        <section
+          id="hero"
+          class="flex flex-col items-center justify-center px-4 pt-24 pb-8 lg:p-24 gap-8 md:gap-16 lg:gap-32 h-auto"
+        >
+          <div class="flex flex-col items-center gap-4 md:gap-8">
+            <Badge
+              variant="outline"
+              className="text-sm md:text-md relative overflow-hidden"
+            >
+              <BorderBeam
+                client:load
+                className="from-transparent via-neutral-500 to-transparent"
+              />
+              Free & Open Source
+            </Badge>
+            <span
+              class="text-muted-foreground text-base md:text-lg text-center"
+            >
+              Trusted by over <NumberTicker
+                value={71000}
+                startValue={10000}
+                client:load
+              /> developers around the world.
+            </span>
+            <h1
+              class="text-4xl md:text-5xl lg:text-7xl font-bold max-w-3xl text-center"
+            >
+              Visualize your data like never before
+            </h1>
+            <h2 class="text-lg md:text-xl font-medium text-center px-4">
+              A powerful VS Code extension to turn your JSON, YAML, XML, and CSV
+              files into interactive graphs.
+            </h2>
+            <div
+              class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4 sm:px-0"
+            >
+              <a
+                href="https://marketplace.visualstudio.com/items?itemName=imgildev.vscode-json-flow"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto"
+              >
+                <Button size="lg" className="w-full sm:w-auto">
+                  Install for Free on VS Code
+                </Button>
+              </a>
+              <a
+                href="https://github.com/ManuelGil/vscode-json-flow"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto"
+              >
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
+                  <Image
+                    src="/assets/github_dark.svg"
+                    alt="GitHub Logo"
+                    class="mr-1 size-4"
+                    width={16}
+                    height={16}
+                  />
+                  Star on GitHub
+                </Button>
+              </a>
+            </div>
+          </div>
+          <figure>
+            <video
+              src="/assets/json-flow.mp4"
+              poster="/assets/json-flow-poster.webp"
+              class="w-full rounded-lg border border-blue-500/50 shadow-[0px_0px_10px_2px_rgba(37,99,235,1)]"
+              width={1216}
+              height={720}
+              aria-label="Screen recording of JSON Flow turning a JSON file into an interactive graph inside VS Code"
+              autoplay
+              loop
+              muted
+              playsinline></video>
+          </figure>
+        </section>
+        <section
+          id="features"
+          class="flex flex-col items-center justify-center p-8 gap-8"
+        >
+          <div class="flex flex-col items-center gap-2">
+            <h2 class="text-4xl font-bold text-center">Key Features</h2>
+            <p class="text-muted-foreground text-center">
+              Everything you need to understand and visualize your data
+              structures effectively.
+            </p>
+          </div>
+          <KeyFeatures client:load />
+        </section>
+        <section id="how-it-works">
+          <HowItWorks client:load />
+        </section>
+        <section
+          id="use-cases"
+          class="flex flex-col items-center justify-center p-8 gap-8"
+        >
+          <div class="flex flex-col items-center gap-2">
+            <h2 class="text-4xl font-bold text-center">Made for Developers</h2>
+            <p class="text-muted-foreground text-center max-w-3xl">
+              Real scenarios, real solutions. See how JSON Flow fits into your
+              daily workflow.
+            </p>
+          </div>
+          <UseCases client:load />
+        </section>
+        <section
+          id="team"
+          class="flex flex-col items-center justify-center p-8 gap-8"
+        >
+          <div class="flex flex-col items-center gap-2">
+            <h2 class="text-4xl font-bold text-center">Meet the Makers</h2>
+            <p class="text-muted-foreground text-center max-w-3xl">
+              JSON Flow is built and maintained by a small team of passionate
+              developers who believe that working with structured data should be
+              visual, intuitive, and collaborative.
+            </p>
+          </div>
+          <div
+            class="flex flex-col items-center gap-8 xl:gap-0 w-full xl:justify-between 2xl:justify-evenly lg:flex-row lg:flex-wrap justify-center"
+          >
+            <MemberCard
+              name="Manuel Gil"
+              role="Creator and lead developer"
+              photo="/assets/imgildev.webp"
+              github="https://github.com/ManuelGil"
+              linkedin="https://www.linkedin.com/in/imgildev"
+              x="https://x.com/imgildev"
+              client:load
+            />
+            <MemberCard
+              name="Santiago Rey"
+              role="Collaborator"
+              photo="/assets/ksreyr.jpg"
+              github="https://github.com/ksreyr"
+              linkedin="https://www.linkedin.com/in/ksreyr"
+              x="https://x.com/ksreyr"
+              client:load
+            />
+            <MemberCard
+              name="Andry Orellana"
+              role="Collaborator"
+              photo="/assets/andryore.jpg"
+              github="https://github.com/AndryOre"
+              linkedin="https://www.linkedin.com/in/andryore"
+              x="https://x.com/andryore"
+              client:load
+            />
+          </div>
+        </section>
+        <section id="call-to-action" class="p-8">
+          <div
+            class="relative flex h-[50vh] w-full flex-col items-center justify-center overflow-hidden rounded-md border bg-background"
+          >
+            <div
+              class="flex flex-col items-center justify-center gap-12 z-10 py-2 px-4"
+            >
+              <div class="flex flex-col items-center justify-center gap-2">
+                <h2
+                  class="text-2xl md:text-4xl lg:text-5xl font-bold text-center"
+                >
+                  Ready to simplify your data workflow?
+                </h2>
+                <p
+                  class="text-muted-foreground text-center md:text-xl lg:text-2xl"
+                >
+                  Start visualizing smarter - Install JSON Flow for free.
+                </p>
+              </div>
+              <a
+                href="https://marketplace.visualstudio.com/items?itemName=imgildev.vscode-json-flow"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="lg"> Get JSON Flow Now </Button>
+              </a>
+            </div>
+            <InteractiveGridPattern
+              className="[mask-image:radial-gradient(600px_circle_at_center,white,transparent)] opacity-50"
+              width={60}
+              height={60}
+              squares={[80, 80]}
+              squaresClassName="hover:fill-blue-500"
+            />
+          </div>
+        </section>
+      </main>
+      <footer class="px-8">
+        <Separator />
+        <div
+          class="flex flex-col md:flex-row items-center md:justify-between py-4 gap-4"
+        >
+          <p
+            class="text-muted-foreground text-center md:text-left items-center gap-2"
+          >
+            Made by developers for <span class="inline-flex items-center gap-2"
+              >developers with <Image
+                src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png"
+                alt="Red Heart"
+                width="25"
+                height="25"
+              />
+            </span>
+          </p>
+          <nav
+            class="flex md:gap-6 text-muted-foreground flex-col md:flex-row items-center gap-2"
+          >
+            <a
+              href="https://github.com/ManuelGil/vscode-json-flow/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-primary transition-colors hover:underline inline-flex items-center gap-1"
+            >
+              <Image
+                src="/assets/github_dark.svg"
+                alt="GitHub Logo"
+                class="mr-1 size-4"
+                width={16}
+                height={16}
+              /> GitHub
+            </a>
+            <a
+              href="https://github.com/ManuelGil/vscode-json-flow/wiki"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-primary transition-colors hover:underline inline-flex items-center gap-1"
+            >
+              <Book className="size-4" />Docs
+            </a>
+            <a
+              href="https://github.com/ManuelGil/vscode-json-flow/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-primary transition-colors hover:underline inline-flex items-center gap-1"
+            >
+              <LifeBuoy className="size-4" />Support
+            </a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>

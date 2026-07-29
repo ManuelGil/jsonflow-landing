@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { codeToHtml } from 'shiki';
+import { createHighlighterCore, type HighlighterCore } from 'shiki/core';
+import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
 import { Skeleton } from '@/components/ui/skeleton';
 
 interface CodeBlockProps {
@@ -8,6 +9,25 @@ interface CodeBlockProps {
 	filename?: string;
 }
 
+// Load only the grammars and theme this landing page actually renders. Importing
+// the `shiki` barrel pulls in every bundled language and theme (~300 extra chunks).
+let highlighterPromise: Promise<HighlighterCore> | null = null;
+
+const getHighlighter = () => {
+	highlighterPromise ??= createHighlighterCore({
+		themes: [import('@shikijs/themes/ayu-dark')],
+		langs: [
+			import('@shikijs/langs/json'),
+			import('@shikijs/langs/yaml'),
+			import('@shikijs/langs/toml'),
+			import('@shikijs/langs/ini'),
+		],
+		engine: createOnigurumaEngine(import('shiki/wasm')),
+	});
+
+	return highlighterPromise;
+};
+
 export function CodeBlock({ code, language, filename }: CodeBlockProps) {
 	const [lines, setLines] = useState<string[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +35,8 @@ export function CodeBlock({ code, language, filename }: CodeBlockProps) {
 	useEffect(() => {
 		const highlightCode = async () => {
 			try {
-				const highlighted = await codeToHtml(code, {
+				const highlighter = await getHighlighter();
+				const highlighted = highlighter.codeToHtml(code, {
 					lang: language,
 					theme: 'ayu-dark',
 				});

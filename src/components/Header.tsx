@@ -49,6 +49,7 @@ export function Header() {
 				<a
 					href="https://marketplace.visualstudio.com/items?itemName=imgildev.vscode-json-flow"
 					target="_blank"
+					rel="noopener noreferrer"
 					className="hidden md:block">
 					<Button>Install on VS Code</Button>
 				</a>
@@ -74,7 +75,8 @@ export function Header() {
 							animate={{ opacity: 1 }}
 							transition={{ delay: 0.2 }}
 							href="https://marketplace.visualstudio.com/items?itemName=imgildev.vscode-json-flow"
-							target="_blank">
+							target="_blank"
+							rel="noopener noreferrer">
 							<Button className="w-full">Install on VS Code</Button>
 						</motion.a>
 						{links.map((link, i) => (
